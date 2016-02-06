@@ -30,9 +30,11 @@ set -euo pipefail
 # appropriate for your application.
 
 mkdir -p /var/tabula/pdfs
-export TABULA_DATA_DIR=/var/tabula
-export DATA_DIR=/var/tabula
-export DOCUMENTS_BASEPATH=/var/tabula/pdfs
+
+#I'm not sure if these actually get used?
+export TABULA_DATA_DIR=/tmp
+export DATA_DIR=/tmp
+export DOCUMENTS_BASEPATH=/tmp
 export ENABLE_DEBUG_METHODS=true
 
 cd /opt/app
