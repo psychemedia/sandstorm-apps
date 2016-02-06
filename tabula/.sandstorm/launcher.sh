@@ -28,5 +28,21 @@ set -euo pipefail
 
 # By default, this script does nothing.  You'll have to modify it as
 # appropriate for your application.
+
+mkdir -p /var/tabula/pdfs
+export TABULA_DATA_DIR=/var/tabula
+export DATA_DIR=/var/tabula
+export DOCUMENTS_BASEPATH=/var/tabula/pdfs
+export ENABLE_DEBUG_METHODS=true
+
 cd /opt/app
+
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 
+export LD_LIBRARY_PATH="$JAVA_HOME/jre/lib:$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/jli:$JAVA_HOME/jre/lib/server" 
+
+export PATH="$PATH:$JAVA_HOME"
+
+java -Dfile.encoding=utf-8 -Xms128M -Xmx512M -Dwarbler.port=8000 -jar /opt/app/tabula/tabula.jar 
+
+
 exit 0

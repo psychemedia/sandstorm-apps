@@ -19,5 +19,18 @@ set -euo pipefail
 
 # By default, this script does nothing.  You'll have to modify it as
 # appropriate for your application.
+
+sudo apt-get install -y wget unzip openjdk-7-jre-headless
+
+if [ ! -f /opt/app/tabula/tabula.jar ]; then
+
+	#Download tabula
+	wget --no-check-certificate https://github.com/tabulapdf/tabula/releases/download/v1.0.1/tabula-jar-1.0.1.zip 
+
+	#Unpack tabula and tidy up
+	unzip tabula-jar-1.0.1.zip -d /opt/app  && rm tabula-jar-1.0.1.zip
+
+fi
+
 cd /opt/app
 exit 0
