@@ -36,6 +36,8 @@ cd /opt/app
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 
 export LD_LIBRARY_PATH="$JAVA_HOME/jre/lib:$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/jli:$JAVA_HOME/jre/lib/server" 
 
+export PATH="$PATH:$JAVA_HOME"
+
 openrefine-2.6-rc.2/refine -p 8000 -i 0.0.0.0 -d /var/refine -v trace
 
 exit 0
